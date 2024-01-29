@@ -1,29 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+// import logo from './logo.svg';
+// import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <h1>My bug problems have been fixed</h1>
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+//const { findAllInRenderedTree } = require("react-dom/test-utils");
 
-export default App;
+// function App() {
+//   return (
+//     <div className="App">
+//       <h1>My bug problems have been fixed</h1>
+//       <header className="App-header">
+//         <img src={logo} className="App-logo" alt="logo" />
+//         <p>
+//           Edit <code>src/App.js</code> and save to reload.
+//         </p>
+//         <a
+//           className="App-link"
+//           href="https://reactjs.org"
+//           target="_blank"
+//           rel="noopener noreferrer"
+//         >
+//           Learn React
+//         </a>
+//       </header>
+//     </div>
+//   );
+// }
+
+// export default App;
 
 
 // import React from 'react';
@@ -274,3 +276,356 @@ export default App;
 //   );
 // }
 // export default App;
+
+//CODING A WALLET BALANCE APPLICATION
+
+// import {useReducer} from 'react';
+// const reducer = (state, action ) =>{
+//   if(action.type === 'ride') return {money: state.money + 10};
+//   if(action.type === 'fuel') return {money: state.money - 10};
+//   return state;
+
+// }
+
+// function App(){
+
+//   const initialState = {money : 100};
+//   const [state, dispatch] = useReducer(reducer, initialState);
+
+//   if(state.money < 0 || state.money === 0) {
+//     return (
+//       <div className='App'>
+//         <h1>Wallet : Not enough balance</h1>
+  
+//         <div>
+//           <button onClick={() => dispatch({type: 'ride'})} >
+//             A new customer!
+//           </button>
+  
+//           <button >
+//             Refill the tank!
+//           </button>
+//         </div>
+//       </div>
+//     );
+
+
+//   }
+//   else{
+//     return (
+//       <div className='App'>
+//         <h1>Wallet : {state.money}</h1>
+  
+//         <div>
+//           <button onClick={() => dispatch({type: 'ride'})} >
+//             A new customer!
+//           </button>
+  
+//           <button onClick = {() => dispatch({type: 'fuel'})}>
+//             Refill the tank!
+//           </button>
+//         </div>
+//       </div>
+//     );
+//   }
+
+ 
+// }
+// export default App;
+
+//DATE AND DAY MESSAGE APPLICATION
+
+// function App(){
+//   const time = new Date();
+//   const day = time.toLocaleString("en-us", {weekday: 'long'});
+//   const morning = time.getHours() >= 6 && time.getHours() <= 19;
+//   let dayMessage;
+
+//   if(day.toLowerCase() === "monday" ){
+//     dayMessage = `Happy ${day}`;
+//   }else if(day.toLowerCase() === "tuesday"){
+//     dayMessage = `${day}, four days to go`;
+//   }else if(day.toLowerCase() === "wednesday"){
+//     dayMessage = `${day}, half way there`;
+//   }else if(day.toLowerCase() === "thursday"){
+//     dayMessage = `${day}, start planning the weekend`;
+//   }else if(day.toLowerCase() === "friday"){
+//     dayMessage = `woo-hoo, the weekend is coming`;
+//   }else{
+//     dayMessage = "Stay calm and keep having fun";
+//   }
+
+//   return (
+
+//     <div className="App">
+//       <h1>{dayMessage}</h1>
+
+//       {morning ? "Have you taken breakfast?" : "What have you been able to achieve today?"}
+
+//     </div>
+//   );
+// }
+
+// export default App;
+
+
+//USING THE MAP() METHOD
+
+// const data = [
+//   {
+//     id: '1',
+//     title: 'Tiramisu',
+//     description: 'The best tiramisu in town',
+//     image: 'https://picum.photos/200/300/?ramdom',
+//     price: '$5.00',
+//   },
+
+//   {
+//     id: '2',
+//     title: 'Lemon Ice Cream',
+//     description: 'Mind blowing taste',
+//     image: 'https://picum.photos/200/300/?ramdom',
+//     price: '$4.50',
+//   },
+
+//   {
+//     id: '3',
+//     title: 'Chocolate mousse',
+//     description: 'Unexplored flavour',
+//     image: 'https://picum.photos/200/300/?ramdom',
+//     price: '$6.00',
+//   },
+// ];
+
+// export default function App(){
+//   const listItems = data.map(dessert => {
+   
+//       const itemText = `${dessert.title} - ${dessert.price}`
+//       return <li>{itemText}</li>
+      
+// //return{
+
+// //      content: `${dessert.title} - ${dessert.description}`,
+// //      price: dessert.price,
+
+// //    }
+//   })
+// //  console.log(topDesserts);
+//   return (
+//     <div>
+//       <ul>{listItems}</ul>
+//     </div>
+//   );
+//}
+
+//TO-DO-LIST APPLICATION
+
+
+// import {useState} from 'react';
+
+// const ToDo = props =>(
+//   <tr>
+//     <td>
+//       <label>{props.id}</label>
+//     </td>
+//     <td>
+//       <input/>
+//     </td>
+//     <td>
+//       <label>{props.createdAt}</label>
+//     </td>
+
+//   </tr>
+// );
+// function App(){
+//   const [todos, setTodos] = useState([{
+//     id: 'todo1',
+//     createdAt: '18:00',
+//   }, {
+//     id: 'todo2',
+//     createdAt: '20:30'
+//   }]);
+
+//   const reverseOrder = () => {
+//     // Reverse is a mutative operation, so we need to create a new array type first.
+//     setTodos([...todos].reverse());
+//   }
+
+//   // First example with keys, show browser console to see the warning.
+
+//   return (
+//     <div>
+//       <button onClick = {reverseOrder}>Reverse</button>
+//       <table>
+//         <tbody>
+//           {todos.map((todo, index ) => (
+//             <ToDo key = {todo.id} id = {todo.id} createdAt = {todo.createdAt} />
+//           ))}
+//         </tbody>
+//       </table>
+//     </div>
+//   );
+// }
+// export default App;
+
+//FORM CONTROL - CONTROLLED COMPONENTS
+
+// import { useState } from "react";
+// import './App.css';
+
+// function App(){
+
+//   const [name, setName] = useState("");
+//   const handleSubmit = (e) => {
+//     e.preventDefault();
+//     setName('');
+//     console.log('form submitted')
+//   }
+//   return(
+//     <div className="App">
+//       <form onSubmit={handleSubmit}>
+//         <fieldset>
+//           <div className="form-control">
+//           <label htmlFor="name">Name:</label>
+//           <input 
+//            id = 'name'
+//            value = {name}
+//            name="name"
+//            placeholder="Name"
+//            type="text"
+//            onChange={e => setName(e.target.value) }
+//           />
+//           </div>
+//           <button disabled = {!name} type="submit">Submit</button>
+
+//         </fieldset>
+//       </form>
+//     </div>
+//   );
+// }
+// export default App;
+
+//CREATING A FEEDBACK FORM
+
+// import { useState } from "react";
+// import './App.css';
+
+// function App(){
+
+//   const [score, setScore] = useState("10")
+//   const [comment, setComment] = useState("")
+//   const handleSubmit = (e) =>{
+//     e.preventDefault();
+
+//     if(Number(score) < 5 && comment.length < 10){
+//       alert('please provide a comment explaining why the experience was poor.')
+//       return;
+//     }
+
+//     console.log('Form submitted')
+
+//     setScore("10");
+//     setComment("");
+
+
+//   }
+
+//   return (
+//     <div className="App">
+//       <form onSubmit = {handleSubmit}>
+//         <fieldset>
+//           <h1>Feedback form</h1>
+//           <div className="field">
+//             <label>
+//               Score: 
+//               {score}
+//               </label>
+//             <input
+//             type="range"
+//             min= '0'
+//             max= '10'
+//             value = {score}
+//             onChange= {(e)=> setScore(e.target.value)}
+//             />
+//           </div>
+//           <div className="form">
+//             <label>Comment:</label>
+//             <textarea value={comment} onChange={(e) => setComment(e.target.value)}></textarea>
+//           </div><button type="submit">Submit</button>
+
+
+//         </fieldset>
+//       </form>
+
+//     </div>
+//   )
+// }
+// export default App;
+
+// CREATING A BLOG APPLICATION
+
+// import './App.css';
+// import { UserProvider, useUser } from './components/UserContext';
+
+// const LoggedInUser = () => {
+//   const {user} = useUser();
+//   return(
+//     <p>
+//        Hello <span className='username'>{user.name}</span>
+//     </p>
+//   );
+// }
+
+// const Header = () => {
+//   return(
+//     <header>
+//       <h2>Blog App</h2>
+//       <LoggedInUser />
+//     </header>
+//   );
+// }
+
+// const Page = () =>{
+//   const {user} = useUser();
+//   return(
+//     <div>
+//       <h2>What is Lorem ipsum?</h2>
+//       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+//         Beatae dolor facilis iure hic, repellendus earum ducimus fugit.
+//         Atque iusto placeat aspernatur veritatis! Veritatis ipsam dicta
+//         laudantium eligendi doloribus, soluta modi.
+//       </p>
+//       <p>Written by {user.name}</p>
+//     </div>
+//   );
+// };
+
+// function App(){
+//   return(
+//     <div className='App'>
+//       < Header />
+//       <Page />
+//     </div>
+//   );
+//   }
+
+// function Root(){
+//   return(
+//     <UserProvider>
+//       <App />
+//     </UserProvider>
+//   );
+// }
+
+// export default Root;
+
+
+
+
+function App(){
+  const myName = "Davie Ajala Timothy"
+  return(
+    <h1>Hello, {myName}</h1>
+  )
+}
+export default App;
